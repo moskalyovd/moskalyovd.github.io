@@ -14,8 +14,6 @@
     </div>
     <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
     <script>
-     importScripts('https://www.gstatic.com/firebasejs/4.8.1/firebase-app.js');
-     importScripts('https://www.gstatic.com/firebasejs/4.8.1/firebase-messaging.js');
      var config = {
        apiKey: "AIzaSyDnD6xbYTBQUTeJpwRNxZGJajcYJ82tp3E",
        authDomain: "testpush-66ad5.firebaseapp.com",
@@ -47,7 +45,8 @@
                 document.getElementById("token").innerHTML = "An error occurred while retrieving token";
               });
      messaging.onMessage(function(payload) {
-       console.log("Message received. ", payload);
+       console.log('Message received. ', payload);
+       new Notification(payload.notification.title, payload.notification);
      });
     </script>
   </body>
